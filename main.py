@@ -1,5 +1,5 @@
-heladoos = []  # Lista para almacenar los helados
-contadore_id = 1  # Contador para asignar IDs únicos
+helados = []  # Lista para almacenar los helados
+contador_id = 1  # Contador para asignar IDs únicos
 
 while True:
     print("\nGestión de Helados")
@@ -9,20 +9,21 @@ while True:
     print("4. Eliminar un helado")
     print("5. Salir")
     
-    opcion = input("Seleccione una opción: ")
+    opcion = input("Seleccione una opción:")
     
     if opcion == "1":  # Agregar un helado
-        nombre = input("Ingrese el nombre del helado: ")
-        descripcion = input("Ingrese la descripción del helado: ")
-        precioo = input("Ingrese el precio del helado: ")
+        nombre = input("Ingrese el nombre del helado:")
+        descripcion = input("Ingrese la descripción del helado:")
+        precio = input("Ingrese el precio del helado:")
         
-    if precioo.isdigit():
+        if precio.isdigit():
             precio = float(precio)  # Error: variable mal escrita
-            heladoo = {"id": contadore_id, "nombre": nombre, "descripcion": descripcion, "precio": precio}
-            heladoos.append(haledo)  # Error: variable mal escrita
-            contadore_id += 1
+            helado = {"id": contador_id, "nombre": nombre, "descripcion": descripcion, "precio": precio}
+            helados.append(helado)  # Error: variable mal escrita
+            contador_id += 1
             print("Helado agregado correctamente.")
-                    else:
+        else:
+        
             print("Error: El precio debe ser un número.")
     
     elif opcion == "2":  # Ver lista de helados
@@ -30,8 +31,8 @@ while True:
             print("No hay helados registrados.")
         else:
             print("\nLista de Helados:")
-            for helado in heladoos:
-                print("ID: {helado['iD']}, Nombre: {helado['nombre']}, Descripción: {helado['descripsion']}, Precio: ${helado['precio']}")  # Error en claves del diccionario
+            for helado in helados:
+                print(f"ID: {helado['id']}, Nombre: {helado['nombre']}, Descripcion: {helado['descripcion']}, Precio: ${helado['precio']}")  # Error en claves del diccionario
     
     elif opcion == "3":  # Modificar un helado
         id_modificar = input("Ingrese el ID del helado a modificar: ")
@@ -40,9 +41,9 @@ while True:
             id_modificar = int(id_modificar)
             encontrado = False
             
-            for helado in heladoos:
-            if helado["id"] == id_modificar:
-                    nuevo_nombre == input("Nuevo nombre (deje en blanco para no cambiar): ")  # Error: doble signo igual
+            for helado in helados:
+                if helado["id"] == id_modificar:
+                    nuevo_nombre = input("Nuevo nombre (deje en blanco para no cambiar): ")  # Error: doble signo igual
                     nueva_descripcion = input("Nueva descripción (deje en blanco para no cambiar): ")
                     nuevo_precio = input("Nuevo precio (deje en blanco para no cambiar): ")
                     
@@ -69,9 +70,9 @@ while True:
             id_eliminar = int(id_eliminar)
             encontrado = False
             
-            for helado in heladoos:
+            for helado in helados:
                 if helado["id"] == id_eliminar:
-                    heladoos.remove(heladoo)  # Error: variable incorrecta
+                    helados.remove(helado)  # Error: variable incorrecta
                     print("Helado eliminado correctamente.")
                     encontrado = True
                     break
@@ -84,5 +85,5 @@ while True:
     elif opcion == "5":  # Salir
         print("Saliendo del programa...")
         break
-                else:
+
         print("Opción inválida, intente nuevamente.")
